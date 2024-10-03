@@ -1,0 +1,211 @@
+<!-- <div class="carousel-container" (mouseover)="startAutoSlide()" (mouseleave)="stopAutoSlide()">
+        <button class="arrow left-arrow" (click)="previousImage()">&#10094;</button>
+        <img [src]="images[currentIndex]" alt="Image Carousel" class="carousel-image" />
+        <div id="about-section " #aboutSection>
+            <div class="overlay-card" style="margin-left:45px ;">
+                <div class="overlay-content">
+                    <h1> About Mahima Events</h1>
+            </div>
+        </div>
+        <button class="arrow right-arrow" (click)="nextImage()">&#10095;</button>
+    </div> -->
+<!-- <div style="background-color: rgb(155, 37, 37);"> -->
+
+<!-- <app-header (sectionClicked)="onSectionClicked($event)"></app-header> -->
+<div class="main-container">
+<h2 class="caption">
+    "We Create You Celebrate"
+</h2>
+<p style="text-align: center; margin-top: -20px; color: #358566;"><i style="color: #358566;"
+        class="bi bi-telephone-inbound-fill"></i> 8374313249 <br></p>
+
+<div class="social-icons">
+
+    <!-- <p>Follow us on</p> -->
+    <a href="https://www.facebook.com/your-profile" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-facebook"></i>
+    </a>
+    <a href="https://www.instagram.com/mahimaevents" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-instagram"></i>
+    </a>
+
+    <!-- LinkedIn Icon -->
+    <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-linkedin"></i>
+    </a>
+
+    <!-- Twitter Icon -->
+    <a href="https://twitter.com/your-profile" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-twitter"></i>
+    </a>
+</div>
+
+
+<div class="container-fluid mt-2 pt-3">
+    <!-- <div class="row justify-content-center"> -->
+    <div style=" z-index: 1; ">
+
+        <!-- <div style="display: flex; justify-content: space-between; padding: 10px;"> -->
+        <!-- <button (click)="scrollLeft()"
+                        style="font-size: 24px; cursor: pointer; border: none; background: none; color: rgb(0, 0, 0);"><i
+                            class="bi bi-arrow-left-circle"></i></button> -->
+        <h2
+            style="color: rgb(2, 2, 2);font-weight: bold; font-family: 'Times New Roman', Times, serif; text-decoration: none; ">
+            Our Services
+        </h2>
+        <!-- <button (click)="scrollRight()"
+                        style="font-size: 24px; cursor: pointer; border: none; background: none; color: rgb(0, 0, 0); "><i
+                            class="bi bi-arrow-right-circle"></i></button> -->
+        <!-- </div> -->
+
+        <!-- <div #scrollContainer
+                style="display: flex; overflow-x: scroll; scrollbar-width: none; -ms-overflow-style: none; gap:10px; "
+                (scroll)="onScroll($event)"> -->
+        <div class="grid">
+            <div *ngFor="let event of events">
+                <!-- <div *ngFor="let event of eventCategories"> -->
+                <div class="card event-cards" (click)="onSelectEvent(event)">
+                    <div class="testimonycard-image">
+                        <img [src]="event.filepath" alt="{{event.filepath}}">
+                    </div>
+                </div>
+                <div class="testimonycard-content">
+                    <p>
+                        {{ event.categoryName }}<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+
+
+    </div>
+    <!-- </div> -->
+</div>
+
+
+<div class="container-fluid pt-4">
+    <!-- <div class="row justify-content-center"> -->
+    <div style="z-index: 1;">
+        <h2
+            style="color: rgb(2, 2, 2);font-weight: bold; font-family: 'Times New Roman', Times, serif; text-decoration: none; ">
+            Checklist
+        </h2>
+        <div #scrollContainer
+            style="display: flex; overflow-x: scroll; scrollbar-width: none; -ms-overflow-style: none; gap:10px;"
+            (scroll)="onScroll($event)">
+            <!-- <div class="grid"> -->
+            <div *ngFor="let event of events">
+                <!-- <div *ngFor="let event of categories"> -->
+                <div class="card event-cards" (click)="onSelectEvent(event)">
+                    <div class="testimonycard-image">
+                        <img [src]="event.filepath" alt="{{event.filepath}}">
+                    </div>
+                </div>
+                <div class="testimonycard-content">
+                    <p>
+                        {{ event.categoryName }}<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-progress-bar" style="margin-bottom: 20px;">
+            <div class="scroll-dot" [style.left]="scrollProgress + '%'"></div>
+        </div>
+    </div>
+    <!-- </div> -->
+</div>
+
+
+<div class="container-fluid pt-4">
+    <!-- <div class="card cardAchieve"> -->
+    <div style="z-index: 1;" class="text-center">
+        <h2
+            style="color: rgb(2, 2, 2);font-weight: bold; font-family: 'Times New Roman', Times, serif; text-decoration: none; ">
+            Achievements
+        </h2>
+        <p>Mahima Events has been in the business since 2019. We have Achieved alot.</p>
+
+        <div *ngFor="let event of achievements" class="text-center">
+            <div class="row row-achievements">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-2">
+                    <div>
+                        <p> Planned Events </p>
+                        <p>{{event.planned}}</p>
+                    </div>
+
+                    <div>
+                        <p> Venues</p>
+                        <p>
+                            {{ event.venues }}<br>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div>
+                        <p> Vendors</p>
+                        <p>
+                            {{ event.vendors }}<br>
+                        </p>
+                    </div>
+                    <div>
+                        <p>Happy Clients</p>
+                        <p>
+                            {{ event.clients }}<br>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+</div>
+
+    <app-testimonials></app-testimonials>
+
+
+<!-- <app-abouts-us style="background-color: rgb(155, 37, 37); ;"></app-abouts-us> -->
+
+<p class="go-to-top" *ngIf="showTopButton" (click)="scrollToTop()">
+    <i class="bi bi-arrow-up-circle"></i>
+</p>
+
+<!-- </div> -->
+
+
+
+<!-- Dots to indicate the current image -->
+<!-- <div class="dot-container">
+                    <span *ngFor="let event of events; let i = index" class="dot" [class.active]="i === currentIndex"
+                        (click)="scrollToIndex(i)"></span>
+                </div> -->
+
+<!-- progress bar -->
+<!-- <div class="scroll-progress-bar">
+                    <div class="scroll-progress" [style.width]="scrollProgress + '%'"></div>
+                </div> -->
+
+<!-- Thin horizontal scrollbar (progress bar) -->
+<!-- <div class="scroll-progress-bar">
+                <div class="scroll-dot" [style.left]="scrollProgress + '%'"></div>
+            </div> -->
+
+
+<!-- <div id="about-section " #aboutSection >
+        <div class="card card-one">
+            <div class="card-image">
+                <img src="assets/images/event3.jpeg" alt="School Image">
+                <div class="overlay-card">
+                    <div class="overlay-content">
+                        <h1> About Mahima Events</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+</div>

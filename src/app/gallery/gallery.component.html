@@ -1,0 +1,49 @@
+<div class="container-fluid p-3" style="z-index: 1;">
+    <div class="line-wrapper" class="grid">
+        <div *ngFor="let event of events" class="line-item" >
+            <img 
+                [src]="event.filepath" 
+                [alt]="event.altText" 
+                (click)="openModal(event)" 
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal" 
+                style="cursor:pointer;" 
+            />
+            <div *ngIf="event.products?.length > 0" class="sublist-images">
+                <div *ngFor="let product of event.products" class="sublist-item">
+                    <img 
+                        [src]="product.filepath" 
+                        [alt]="product.altText" 
+                        (click)="openModal(product)"
+                        data-bs-toggle="modal" 
+                        data-bs-target="#imageModal"
+                        style="cursor:pointer;" 
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <!-- `modal-dialog-centered` centers the modal on the screen -->
+        <div class="modal-content">
+            <div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="image-container">
+                    <img [src]="selectedImage?.filepath" [alt]="selectedImage?.altText"
+                        class="img-fluid centered-image" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
